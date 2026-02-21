@@ -64,7 +64,6 @@ MarkupSafe==3.0.3
 marshmallow==3.26.2
 matplotlib-inline==0.2.1
 mdurl==0.1.2
--e git+https://github.com/mohamadzuheer6-gif/RAG-project.git@242b78cc91b6ffe26ae5c73f4668ff84132109a7#egg=medical_chatbot
 mpmath==1.3.0
 multidict==6.7.1
 mypy_extensions==1.1.0
