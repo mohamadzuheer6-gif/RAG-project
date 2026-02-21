@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 # ✅ NEW CORRECT IMPORTS
 from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitterr
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 
 from pinecone import Pinecone, ServerlessSpec
@@ -56,7 +56,7 @@ def filter_to_minimal_docs(docs: List[Document]) -> List[Document]:
 # Text Splitting
 # -----------------------
 def split_documents(docs: List[Document]):
-    splitter = RecursiveCharacterTextSplitterr(
+    splitter = RecursiveCharacterTextSplitter(
         chunk_size=500,
         chunk_overlap=20,
         length_function=len
