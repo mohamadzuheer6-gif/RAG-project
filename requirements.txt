@@ -9,3 +9,4 @@ tiktoken
 SQLAlchemy
 psycopg2-binary
 Flask-SQLAlchemy
+Flask-Login
