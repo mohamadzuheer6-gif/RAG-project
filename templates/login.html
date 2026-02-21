@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        /* Make login page bigger */
+        .login-container {
+            width: 520px;              /* Bigger width */
+            padding: 60px 55px;        /* More spacing inside */
+            border-radius: 22px;
+            background: #2a2b32;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            color: white;
+        }
+
+        /* Bigger heading */
+        .login-container h2 {
+            font-size: 36px;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        /* Bigger input fields */
+        .login-container input {
+            width: 100%;
+            padding: 18px 20px;
+            margin-bottom: 25px;
+            border-radius: 14px;
+            border: none;
+            outline: none;
+            background: #3a3b45;
+            color: white;
+            font-size: 16px;
+        }
+
+        /* Bigger button */
+        .login-container button {
+            width: 100%;
+            padding: 18px;
+            border-radius: 14px;
+            border: none;
+            background: #10a37f;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .login-container button:hover {
+            background: #0d8a6c;
+        }
+
+        /* Bottom text spacing */
+        .login-container p {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 15px;
+        }
+    </style>
+    
+</head>
+
+<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#1e1f26;margin:0;">
+
+    <div class="login-container">
+
+        <h2>Login</h2>
+
+        <form method="POST">
+
+            <input name="email" type="email" placeholder="Email" required>
+
+            <input name="password" type="password" placeholder="Password" required>
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <p>
+            Don't have account?
+            <a href="{{ url_for('auth.register') }}" style="color:#10a37f;text-decoration:none;">
+                Register
+            </a>
+        </p>
+
+    </div>
+
+</body>
+</html>

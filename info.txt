@@ -1,0 +1,3 @@
+langchain-for extracting data from pdf, embeddings
+pinecone-for storeing vectors and get similar vectors (vector data base)
+ollama
