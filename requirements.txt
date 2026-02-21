@@ -3,9 +3,7 @@ gunicorn
 python-dotenv
 langchain
 langchain-community
-langchain-openai
-openai
-pinecone
+huggingface_hub
 faiss-cpu
 tiktoken
 SQLAlchemy

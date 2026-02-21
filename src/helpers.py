@@ -11,7 +11,6 @@ from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 
-from langchain_huggingface import HuggingFaceEmbeddings
 from pinecone import Pinecone, ServerlessSpec
 from langchain_pinecone import PineconeVectorStore
 
@@ -64,15 +63,17 @@ def split_documents(docs: List[Document]):
     )
     return splitter.split_documents(docs)
 
-
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 # -----------------------
 # Embeddings
 # -----------------------
 def download_embeddings():
-    os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
-
     model_name = "sentence-transformers/all-MiniLM-L6-v2"
-    embeddings = HuggingFaceEmbeddings(model_name=model_name)
+
+    embeddings = HuggingFaceInferenceAPIEmbeddings(
+        api_key=os.getenv("HUGGINGFACEHUB_API_TOKEN"),
+        model_name=model_name
+    )
 
     return embeddings
 
