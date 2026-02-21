@@ -219,8 +219,7 @@ __pycache__/
 # Jupyter
 .ipynb_checkpoints/
 
-# Models (if large)
-models/
+
 
 # OS files
 .DS_Store
