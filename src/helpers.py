@@ -21,7 +21,7 @@ from langchain_pinecone import PineconeVectorStore
 def load_environment():
     load_dotenv()
     os.environ["PINECONE_API_KEY"] = os.getenv("PINECONE_API_KEY")
-    os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+    
 
 
 # -----------------------
