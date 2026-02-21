@@ -63,17 +63,17 @@ def split_documents(docs: List[Document]):
     )
     return splitter.split_documents(docs)
 
-from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
+from langchain_huggingface import HuggingFaceEndpointEmbeddings
 # -----------------------
 # Embeddings
 # -----------------------
 def download_embeddings():
     model_name = "sentence-transformers/all-MiniLM-L6-v2"
 
-    embeddings = HuggingFaceInferenceAPIEmbeddings(
-        api_key=os.getenv("HUGGINGFACEHUB_API_TOKEN"),
-        model_name=model_name
-    )
+    embeddings = HuggingFaceEndpointEmbeddings(
+        model="sentence-transformers/all-MiniLM-L6-v2",
+        huggingfacehub_api_token=os.getenv("HUGGINGFACEHUB_API_TOKEN")
+)
 
     return embeddings
 

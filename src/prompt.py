@@ -1,13 +1,12 @@
 # src/prompt.py
 
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.chat_history import InMemoryChatMessageHistory
+import os
 
-from langchain_ollama import ChatOllama
-
+from langchain_openai import ChatOpenAI
 
 # ---------------------------
 # Session Store (Memory)
@@ -39,12 +38,15 @@ def get_prompt_template():
 
 
 # ---------------------------
-# Load LLM
+# Load LLM (Groq via OpenAI-compatible API)
 # ---------------------------
-def load_llm():
-    return ChatOllama(
-        model="llama3",
-        temperature=0
+def get_llm():
+    return ChatOpenAI(
+        model="llama-3.1-8b-instant",
+        openai_api_key=os.getenv("GROQ_API_KEY"),
+        openai_api_base="https://api.groq.com/openai/v1",
+        temperature=0.3,
+        streaming=True
     )
 
 
@@ -54,12 +56,11 @@ def load_llm():
 def build_rag_chain(retriever):
 
     prompt = get_prompt_template()
-    llm = load_llm()
+    llm = get_llm()
 
     def format_docs(docs):
         return "\n\n".join(doc.page_content for doc in docs)
 
-    # 🔥 Extract user input properly
     rag_chain = (
         {
             "context": lambda x: format_docs(retriever.invoke(x["input"])),
