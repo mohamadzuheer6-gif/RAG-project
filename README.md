@@ -191,6 +191,30 @@ http://127.0.0.1:5000/
 ```
 
 ---
+> Below are screenshots demonstrating authentication, chat functionality, RAG pipeline execution.
+## 📸 Screenshots
+
+### 🔐 Authentication
+
+![Login Page](screenshots/login.png)
+
+![Login Page](screenshots/Register.png)
+
+---
+
+### 🖥️ Dashboard / Chat Interface
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+### 💬 Chat in Action (RAG Working)
+
+![Chat Working](screenshots/chat-working.png)
+
+---
+
+
 
 ## 🔄 Full-Stack Request Lifecycle
 
