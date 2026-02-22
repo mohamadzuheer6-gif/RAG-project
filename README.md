@@ -55,23 +55,28 @@ The application uses **PostgreSQL** as the relational database for persistent st
 
 This relational structure enables conversation history persistence and user-based session management.
 
-##  System Architecture
-
-User (Browser)  
-⬇  
-HTML Templates + JavaScript  
-⬇  
-Flask Backend (Routes Layer)  
-⬇  
-Embedding Generation (384-dim)  
-⬇  
-Pinecone Vector Search  
-⬇  
-Context Injection  
-⬇  
-Grok LLM (OpenAI-Compatible API)  
-⬇  
-Formatted Response → UI Rendering  
+User (Browser)
+⬇
+HTML Templates + JavaScript
+⬇
+Flask Backend (Blueprint Routes)
+⬇
+PostgreSQL
+   ├── Users Table (Authentication)
+   ├── Chat Table (Chat Sessions)
+   └── Message Table (Conversation History)
+⬇
+Embedding Generation (Hugging Face – 384-dim)
+⬇
+Pinecone Vector Search
+⬇
+Context Injection
+⬇
+Grok LLM (OpenAI-Compatible API)
+⬇
+Response Saved to PostgreSQL
+⬇
+Rendered Back to UI
 
 ---
 
