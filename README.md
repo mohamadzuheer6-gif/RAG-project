@@ -55,6 +55,9 @@ The application uses **PostgreSQL** as the relational database for persistent st
 
 This relational structure enables conversation history persistence and user-based session management.
 
+## 🏗️ System Architecture
+
+```
 User (Browser)
 ⬇
 HTML Templates + JavaScript
@@ -77,8 +80,7 @@ Grok LLM (OpenAI-Compatible API)
 Response Saved to PostgreSQL
 ⬇
 Rendered Back to UI
-
----
+```
 
 ##  Features
 
